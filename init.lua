@@ -1,4 +1,4 @@
---[[
+--[[init
 What is Kickstart?
 
 =====================================================================
@@ -96,6 +96,9 @@ local opts = { noremap = true, silent = true }
 -- Window split keybinds
 --
 keymap("n", "<leader>v", "<C-v>", opts)
+keymap("n", "<C-s>", ":w!<Cr>", opts)
+keymap("n", "<C-z>", "u", opts)
+keymap("i", "<C-z>", "<C-o>u", opts)
 keymap("n", "<leader>\\", ":vsplit<CR>", opts) -- Vertical split
 keymap("n", "<leader>-", ":split<CR>", opts) -- Horizontal split
 
@@ -135,6 +138,7 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<C-w>", "<cmd>BufferClose<CR>")
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Opmen diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')

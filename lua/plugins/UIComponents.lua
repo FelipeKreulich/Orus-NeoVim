@@ -3,41 +3,20 @@ return {
 	-- bar tab
 	--
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("tokyonight").setup({
-				-- Configure Tokyo Night to be transparent
-				transparent = true,
-				terminal_colors = true,
-				styles = {
-					-- Style to be applied to different syntax groups
-					comments = { italic = true },
-					keywords = { italic = true },
-					functions = {},
-					variables = {},
-					-- Background styles. Can be "dark", "transparent" or "normal"
-					sidebars = "transparent", -- style for sidebars, see below
-					floats = "transparent", -- style for floating windows
-				},
-			})
-
-			vim.cmd.colorscheme("tokyonight")
-
-			-- Additional transparency settings if needed
-			vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-			vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-		end,
-	},
-	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
 		},
+	},
+	{
+		"nyoom-engineering/oxocarbon.nvim",
+		lazy = false, -- carrega no startup
+		priority = 1000, -- para garantir que carregue antes de outros plugins
+		config = function()
+			vim.cmd([[colorscheme oxocarbon]])
+		end,
 	},
 	{
 		{
@@ -141,6 +120,60 @@ return {
 					workspace = "In {}",
 				},
 			})
+		end,
+	},
+
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("neo-tree").setup({
+				close_if_last_window = true, -- Close Neo-tree when it's the last window
+				popup_border_style = "rounded",
+				enable_git_status = true,
+				enable_diagnostics = false,
+				sort_case_insensitive = true,
+
+				filesystem = {
+					filtered_items = {
+						visible = true, -- Show hidden files
+						hide_dotfiles = false, -- Don't hide dotfiles (.env, .gitignore, etc.)
+						hide_gitignored = true,
+					},
+					follow_current_file = {
+						enabled = true, -- Focus the current file in the tree
+					},
+					hijack_netrw_behavior = "open_default",
+					use_libuv_file_watcher = true,
+				},
+
+				window = {
+					position = "left",
+					width = 32,
+					mappings = {
+						["<space>"] = "toggle_node",
+						["<cr>"] = "open",
+						["a"] = { "add", config = { show_path = "relative" } }, -- Create new file/folder
+						["A"] = "add_directory", -- Create directory
+						["d"] = "delete",
+						["r"] = "rename",
+						["y"] = "copy_to_clipboard",
+						["x"] = "cut_to_clipboard",
+						["p"] = "paste_from_clipboard",
+						["q"] = "close_window",
+					},
+				},
+			})
+
+			-- 🗂️ Keybindings
+			vim.keymap.set("n", "<C-b>", ":Neotree toggle<CR>", { desc = "Toggle Neo-tree" })
+
+			-- vim.keymap.set("n", "<C-k>", ":Neotree focus<CR>", { desc = "Focus Neo-tree" })
 		end,
 	},
 }
