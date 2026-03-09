@@ -102,7 +102,7 @@ keymap("i", "<C-z>", "<C-o>u", opts)
 keymap("n", "<leader>\\", ":vsplit<CR>", opts) -- Vertical split
 keymap("n", "<leader>-", ":split<CR>", opts) -- Horizontal split
 
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"

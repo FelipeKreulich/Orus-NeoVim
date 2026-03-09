@@ -11,11 +11,30 @@ return {
 		},
 	},
 	{
-		"nyoom-engineering/oxocarbon.nvim",
-		lazy = false, -- carrega no startup
-		priority = 1000, -- para garantir que carregue antes de outros plugins
-		config = function()
-			vim.cmd([[colorscheme oxocarbon]])
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			style = "night",
+			transparent = false,
+			terminal_colors = true,
+			styles = {
+				comments = { italic = true },
+				keywords = { italic = true },
+				functions = {},
+				variables = {},
+				sidebars = "dark",
+				floats = "dark",
+			},
+			sidebars = { "qf", "help", "neo-tree", "terminal", "trouble" },
+			on_highlights = function(hl, c)
+				hl.LineNr = { fg = c.dark5 }
+				hl.CursorLineNr = { fg = c.orange, bold = true }
+			end,
+		},
+		config = function(_, opts)
+			require("tokyonight").setup(opts)
+			vim.cmd([[colorscheme tokyonight-night]])
 		end,
 	},
 	{

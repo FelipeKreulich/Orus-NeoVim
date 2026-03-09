@@ -8,7 +8,7 @@ return {
 	config = function()
 		local keymap = vim.keymap.set
 
-		keymap("n", "<C-z>", "<cmd>:ZenMode<CR>", {
+		keymap("n", "<leader>z", "<cmd>:ZenMode<CR>", {
 			noremap = true,
 			silent = true,
 			desc = "Focus mode!",
