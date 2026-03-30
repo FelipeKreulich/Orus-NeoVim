@@ -1,0 +1,2 @@
+-- glitch-sidebar placeholder
+return {}

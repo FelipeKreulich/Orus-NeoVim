@@ -138,7 +138,7 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<C-w>", "<cmd>BufferClose<CR>")
+vim.keymap.set("n", "<leader>w", "<cmd>BufferClose<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Opmen diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')

@@ -55,6 +55,9 @@ return {
 				focus_on_close = "left",
 				hide = { inactive = false }, -- Set to false to always show all buffers
 				highlight_visible = true,
+				exclude_ft = { "" },
+				exclude_name = { "" },
+				no_name_title = nil,
 				icons = {
 					buffer_index = false,
 					buffer_number = false,
