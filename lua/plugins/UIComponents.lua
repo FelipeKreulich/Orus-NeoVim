@@ -35,6 +35,22 @@ return {
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
 			vim.cmd([[colorscheme tokyonight-night]])
+
+			-- Atalhos para trocar de tema rapidamente
+			vim.keymap.set("n", "<leader>tt", function()
+				vim.cmd("colorscheme tokyonight-night")
+				vim.notify("Tema: Tokyo Night", vim.log.levels.INFO)
+			end, { desc = "Tema: Tokyo Night" })
+
+			vim.keymap.set("n", "<leader>tm", function()
+				vim.cmd("colorscheme midnight")
+				vim.notify("Tema: Midnight (preto puro)", vim.log.levels.INFO)
+			end, { desc = "Tema: Midnight" })
+
+			vim.keymap.set("n", "<leader>tc", function()
+				vim.cmd("colorscheme cyberdream")
+				vim.notify("Tema: Cyberdream", vim.log.levels.INFO)
+			end, { desc = "Tema: Cyberdream" })
 		end,
 	},
 	{

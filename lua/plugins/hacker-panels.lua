@@ -69,9 +69,11 @@ return {
         if r <= 4 then
           -- Status message
           local msg = rand_pick(status_msgs)
-          local formatted = string.format(msg, rand_ip(), math.random(1024, 65535))
-          -- Remove extra args that weren't consumed
-          formatted = formatted:gsub("%%[ds]", "")
+          local ip = rand_ip()
+          local port = math.random(1024, 65535)
+          local hex = rand_hex(8)
+          -- Substituir placeholders manualmente pra evitar erros de tipo
+          local formatted = msg:gsub("%%s", ip):gsub("%%d", tostring(port))
           return "[" .. os.date("%H:%M:%S") .. "] " .. formatted
         elseif r <= 6 then
           -- Hex dump

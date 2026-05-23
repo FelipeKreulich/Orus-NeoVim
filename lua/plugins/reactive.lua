@@ -8,7 +8,6 @@ return {
           cursor = true,
           modemsg = true,
         },
-        load = { "catppuccin-mocha-cursor", "catppuccin-mocha-cursorline" },
       })
     end,
   },
