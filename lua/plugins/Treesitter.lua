@@ -32,6 +32,24 @@ return {
 			"kotlin",
 			"sql",
 			"properties",
+			-- PHP / Laravel
+			"php",
+			"phpdoc",
+			"blade",
+			-- Web
+			"tsx",
+			"jsdoc",
+			"scss",
+			"vue",
+			-- Swift is left out: its parser must be generated with the tree-sitter CLI and fails with
+			-- CLI 0.27+. Swift files still get Neovim's built-in syntax and sourcekit-lsp.
+			-- Misc
+			"dockerfile",
+			"gitcommit",
+			"git_rebase",
+			"gitignore",
+			"regex",
+			"http",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,

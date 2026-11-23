@@ -1,3 +1,11 @@
+-- Some plugins (e.g. neotest-phpunit) still call vim.tbl_flatten, deprecated since Neovim 0.11.
+-- Replace it with the modern equivalent so the deprecation warning stops popping up.
+if vim.fn.has("nvim-0.11") == 1 then
+	vim.tbl_flatten = function(t)
+		return vim.iter(t):flatten(math.huge):totable()
+	end
+end
+
 --[[init
 What is Kickstart?
 
@@ -180,6 +188,24 @@ require("lazy").setup({
 				topdelete = { text = "‾" },
 				changedelete = { text = "~" },
 			},
+			-- Hunk keymaps (the rest of the Git group lives in lua/plugins/git.lua).
+			on_attach = function(bufnr)
+				local gs = require("gitsigns")
+				local function map(modo, teclas, acao, desc)
+					vim.keymap.set(modo, teclas, acao, { buffer = bufnr, desc = desc })
+				end
+				map("n", "]h", function() gs.nav_hunk("next") end, "Alteração seguinte (hunk)")
+				map("n", "[h", function() gs.nav_hunk("prev") end, "Alteração anterior (hunk)")
+				map("n", "<leader>gp", gs.preview_hunk, "Ver a alteração")
+				map("n", "<leader>gs", gs.stage_hunk, "Adicionar a alteração (stage)")
+				map("n", "<leader>gr", gs.reset_hunk, "Desfazer a alteração")
+				map("v", "<leader>gs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Adicionar as linhas (stage)")
+				map("v", "<leader>gr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Desfazer as linhas")
+				map("n", "<leader>gS", gs.stage_buffer, "Adicionar o ficheiro (stage)")
+				map("n", "<leader>gR", gs.reset_buffer, "Desfazer o ficheiro todo")
+				map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Quem mudou esta linha (blame)")
+				map("n", "<leader>gB", gs.toggle_current_line_blame, "Blame em todas as linhas")
+			end,
 		},
 	},
 	-- LSP Plugins
@@ -291,12 +317,8 @@ require("lazy").setup({
 			--  - ci'  - [C]hange [I]nside [']quote
 			require("mini.ai").setup({ n_lines = 500 })
 
-			-- Add/delete/replace surroundings (brackets, quotes, etc.)
-			--
-			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-			-- - sd'   - [S]urround [D]elete [']quotes
-			-- - sr)'  - [S]urround [R]eplace [)] [']
-			require("mini.surround").setup()
+			-- Surround is handled by nvim-surround (ys / ds / cs, see CodeUtility.lua): mini.surround
+			-- used `s` too and clashed with Flash.
 
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
@@ -339,6 +361,9 @@ require("lazy").setup({
 		},
 	},
 })
+
+-- Blade templates get their own filetype (Treesitter parser + blade-formatter).
+vim.filetype.add({ pattern = { [".*%.blade%.php"] = "blade" } })
 
 -- Language (PT by default, EN optional): <Space>ti or :Idioma pt|en
 require("config.idioma").setup()

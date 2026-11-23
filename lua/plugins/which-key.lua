@@ -66,6 +66,9 @@ return {
 			{ "<leader>nx", function() require("config.ficheiros").apagar() end, desc = "Apagar este ficheiro" },
 			{ "<leader>ny", function() require("config.ficheiros").copiar_caminho() end, desc = "Copiar o caminho" },
 			{ "<leader>ne", "<cmd>Neotree reveal<CR>", desc = "Mostrar no explorador" },
+			{ "<leader>g", group = "Git", mode = { "n", "v" }, icon = "󰊢" },
+			{ "<leader>d", group = "Base de dados", icon = "󰆼" },
+			{ "<leader>r", group = "Testes", icon = "󰙨" },
 			-- Cosmética
 			{ "<leader>e", group = "Efeitos", icon = "󰙴" },
 			{ "<leader>E", group = "Ecrãs hacker", icon = "󰊠" },

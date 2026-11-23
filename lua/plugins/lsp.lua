@@ -15,6 +15,7 @@ return {
 			end,
 		},
 		"williamboman/mason-lspconfig.nvim",
+		"b0o/SchemaStore.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- Useful status updates for LSP.
@@ -226,6 +227,41 @@ return {
 			-- ts_ls = {},
 			--
 
+			-- PHP / Laravel
+			intelephense = {
+				settings = {
+					intelephense = {
+						environment = { phpVersion = "8.3" },
+						files = { maxSize = 5000000 },
+					},
+				},
+			},
+			-- TypeScript / React / Next.js
+			ts_ls = {},
+			eslint = {},
+			tailwindcss = {},
+			html = {},
+			cssls = {},
+			-- JSON / YAML validated against SchemaStore (package.json, composer.json, GitHub workflows...)
+			jsonls = {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
+					},
+				},
+			},
+			yamlls = {
+				settings = {
+					yaml = {
+						schemaStore = { enable = false, url = "" },
+						schemas = require("schemastore").yaml.schemas(),
+					},
+				},
+			},
+			-- Kotlin (Android apps)
+			kotlin_language_server = {},
+
 			lua_ls = {
 				-- cmd = { ... },
 				-- filetypes = { ... },
@@ -263,6 +299,12 @@ return {
 			"java-debug-adapter",
 			"java-test",
 			"vscode-spring-boot-tools",
+			-- Formatters and linters (only run where the project uses them: see Autoformater.lua and lint.lua)
+			"pint",
+			"phpstan",
+			"blade-formatter",
+			"prettierd",
+			"ktlint",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -271,16 +313,19 @@ return {
 			automatic_installation = false,
 			-- O jdtls arranca pelo nvim-jdtls (ftplugin/java.lua); ligado aqui também arrancava duas vezes.
 			automatic_enable = { exclude = { "jdtls" } },
-			handlers = {
-				function(server_name)
-					local server = servers[server_name] or {}
-					-- This handles overriding only values explicitly passed
-					-- by the server configuration above. Useful when disabling
-					-- certain features of an LSP (for example, turning off formatting for ts_ls)
-					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
-				end,
-			},
 		})
+
+		-- mason-lspconfig v2 enables every installed server with vim.lsp.enable; the settings above
+		-- are passed through vim.lsp.config (the old `handlers` / lspconfig.setup API is gone).
+		vim.lsp.config("*", { capabilities = capabilities })
+		for name, config in pairs(servers) do
+			vim.lsp.config(name, config)
+		end
+
+		-- Swift (iOS apps): sourcekit-lsp ships with Xcode, so it is not installed by Mason.
+		if vim.fn.executable("sourcekit-lsp") == 1 then
+			vim.lsp.config("sourcekit", { filetypes = { "swift", "objc", "objcpp" } })
+			vim.lsp.enable("sourcekit")
+		end
 	end,
 }

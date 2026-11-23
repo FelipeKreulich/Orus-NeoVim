@@ -121,6 +121,41 @@ Carrega só a primeira tecla e o menu mostra o resto. Os mais úteis:
 | `am` | Menu das marcas |
 | `<Espaço>1` … `<Espaço>5` | Ir para a marca 1 a 5 |
 
+## Git (`<Espaço>g`)
+
+| Teclas | O quê |
+|---|---|
+| `gg` | LazyGit (commits, branches, push, tudo) |
+| `gd` / `gm` | Diff das alterações por gravar / do branch inteiro (como um PR) |
+| `gh` / `gH` / `gl` | Histórico do ficheiro / do repositório / commits do ficheiro (LazyGit) |
+| `gq` | Fechar o diff |
+| `]h` / `[h` | Alteração seguinte / anterior |
+| `gp` | Ver a alteração |
+| `gs` / `gr` | Adicionar (stage) / desfazer a alteração (ou as linhas selecionadas) |
+| `gS` / `gR` | Adicionar / desfazer o ficheiro todo |
+| `gb` / `gB` | Quem mudou esta linha / blame em todas as linhas |
+
+## Base de dados (`<Espaço>d`)
+
+| Teclas | O quê |
+|---|---|
+| `dd` | Painel das bases de dados |
+| `da` | Nova ligação (ex.: `mysql://utilizador:senha@127.0.0.1:3306/base`) |
+| `df` | Ligar o ficheiro SQL aberto a uma base |
+
+No painel: `<Enter>` abre a base ou a tabela e `?` mostra a ajuda. Numa query aberta pelo painel, gravar (`:w`) corre a query. As ligações ficam guardadas fora do repositório.
+
+## Testes (`<Espaço>r`)
+
+| Teclas | O quê |
+|---|---|
+| `rr` / `rf` / `ra` | Correr o teste mais próximo / o ficheiro / todos |
+| `rl` / `rx` | Repetir o último / parar |
+| `rs` / `ro` / `rp` | Painel dos testes / ver o resultado / painel do output |
+| `]r` / `[r` | Teste falhado seguinte / anterior |
+
+PHPUnit (com o PHP 8.3), Jest e Vitest. No Java usa `<Espaço>jt` / `jT`.
+
 ## Java / Spring (`<Espaço>j`, só em ficheiros Java)
 
 | Teclas | O quê |

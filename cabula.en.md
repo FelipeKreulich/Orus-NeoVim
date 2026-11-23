@@ -121,6 +121,41 @@ Press just the first key and the menu shows the rest. The most useful:
 | `am` | Marks menu |
 | `<Space>1` … `<Space>5` | Go to mark 1 to 5 |
 
+## Git (`<Space>g`)
+
+| Keys | What |
+|---|---|
+| `gg` | LazyGit (commits, branches, push, everything) |
+| `gd` / `gm` | Diff of uncommitted changes / of the whole branch (like a PR) |
+| `gh` / `gH` / `gl` | File history / repository history / file commits (LazyGit) |
+| `gq` | Close the diff |
+| `]h` / `[h` | Next / previous change |
+| `gp` | Preview change |
+| `gs` / `gr` | Stage / reset the change (or the selected lines) |
+| `gS` / `gR` | Stage / reset the whole file |
+| `gb` / `gB` | Who changed this line / blame on every line |
+
+## Database (`<Space>d`)
+
+| Keys | What |
+|---|---|
+| `dd` | Database panel |
+| `da` | New connection (e.g. `mysql://user:password@127.0.0.1:3306/db`) |
+| `df` | Attach the open SQL file to a database |
+
+In the panel: `<Enter>` opens a database or table and `?` shows help. In a query opened from the panel, saving (`:w`) runs it. Connections are stored outside the repo.
+
+## Tests (`<Space>r`)
+
+| Keys | What |
+|---|---|
+| `rr` / `rf` / `ra` | Run nearest test / file / all |
+| `rl` / `rx` | Run last again / stop |
+| `rs` / `ro` / `rp` | Tests panel / show result / output panel |
+| `]r` / `[r` | Next / previous failed test |
+
+PHPUnit (with PHP 8.3), Jest and Vitest. For Java use `<Space>jt` / `jT`.
+
 ## Java / Spring (`<Space>j`, Java files only)
 
 | Keys | What |
