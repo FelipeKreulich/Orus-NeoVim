@@ -21,6 +21,31 @@
 | `<Ctrl-t>` | Terminal flutuante |
 | `<Esc><Esc>` | Sair do modo terminal |
 
+## Ficheiros e pastas (`<Espaço>n`)
+
+| Teclas | O quê |
+|---|---|
+| `nf` | Novo ficheiro (cria as pastas que faltarem) |
+| `nd` | Nova pasta |
+| `nr` | Renomear o ficheiro aberto |
+| `nx` | Apagar o ficheiro aberto (pede confirmação) |
+| `ny` | Copiar o caminho do ficheiro |
+| `ne` | Mostrar o ficheiro no explorador |
+
+Dentro do explorador (Neo-tree, `<Ctrl-e>`/`<Ctrl-b>`):
+
+| Tecla | O quê |
+|---|---|
+| `a` | Novo ficheiro (acaba em `/` para criar pasta) |
+| `A` | Nova pasta |
+| `r` | Renomear |
+| `d` | Apagar |
+| `m` / `c` | Mover / copiar para outro sítio |
+| `y` / `x` / `p` | Copiar / cortar / colar |
+| `<Enter>` / `<Espaço>` | Abrir / expandir |
+| `H` / `?` | Mostrar ficheiros escondidos / ajuda |
+| `q` | Fechar |
+
 ## Janelas
 
 | Teclas | O quê |
