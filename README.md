@@ -1,13 +1,6 @@
 <div align="center">
 
-```
- ██████╗ ██████╗ ██╗   ██╗███████╗
-██╔═══██╗██╔══██╗██║   ██║██╔════╝
-██║   ██║██████╔╝██║   ██║███████╗
-██║   ██║██╔══██╗██║   ██║╚════██║
-╚██████╔╝██║  ██║╚██████╔╝███████║
- ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
-```
+<img src="assets/banner.png" alt="Orus NeoVim" width="100%" />
 
 ### A fast, bilingual Neovim setup for real work, with a hacker soul
 
