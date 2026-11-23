@@ -2,6 +2,11 @@ return {
 	-- Useful plugin to show you pending keybinds.
 	"folke/which-key.nvim",
 	event = "VimEnter", -- Sets the loading event to 'VimEnter'
+	-- Descriptions are translated on the fly (PT by default, EN optional): see config/idioma.lua.
+	config = function(_, opts)
+		require("which-key").setup(opts)
+		require("config.idioma").ligar_which_key()
+	end,
 	opts = {
 		-- delay between pressing a key and opening which-key (milliseconds)
 		-- this setting is independent of vim.opt.timeoutlen
@@ -71,6 +76,14 @@ return {
 			{ "<leader>3", hidden = true },
 			{ "<leader>4", hidden = true },
 			{ "<leader>5", hidden = true },
+			{
+				"<leader>ti",
+				function()
+					require("config.idioma").alternar()
+				end,
+				desc = "Idioma: PT / EN",
+				icon = "󰗊",
+			},
 			-- Cábula com todos os atalhos
 			{
 				"<leader>?",

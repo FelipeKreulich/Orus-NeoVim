@@ -1,292 +1,191 @@
-# Orus NeoVim
+<div align="center">
 
-A modern, feature-rich Neovim configuration built on top of [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) with a carefully curated set of plugins for an efficient development workflow — plus visual effects, hacker aesthetics, and a spinning 3D donut.
+```
+ ██████╗ ██████╗ ██╗   ██╗███████╗
+██╔═══██╗██╔══██╗██║   ██║██╔════╝
+██║   ██║██████╔╝██║   ██║███████╗
+██║   ██║██╔══██╗██║   ██║╚════██║
+╚██████╔╝██║  ██║╚██████╔╝███████║
+ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
+```
 
-## Requirements
+### A fast, bilingual Neovim setup for real work, with a hacker soul
 
-- **Neovim** >= 0.11
-- **Git** >= 2.19
-- A [Nerd Font](https://www.nerdfonts.com/) (JetBrainsMono NF recommended)
-- **ripgrep** (`rg`) for Telescope grep
-- **make** and a C compiler for Treesitter and LuaSnip
+[![Neovim](https://img.shields.io/badge/Neovim-0.12%2B-57A143?style=for-the-badge&logo=neovim&logoColor=white)](https://neovim.io)
+[![Lua](https://img.shields.io/badge/Made%20with-Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)](https://www.lua.org)
+[![lazy.nvim](https://img.shields.io/badge/lazy.nvim-plugin%20manager-7E56C2?style=for-the-badge)](https://github.com/folke/lazy.nvim)
+[![Java](https://img.shields.io/badge/Java%20%2B%20Spring%20Boot-ready-F80000?style=for-the-badge&logo=openjdk&logoColor=white)](#-java--spring-boot)
+[![i18n](https://img.shields.io/badge/UI-Português%20%7C%20English-0A84FF?style=for-the-badge)](#-language-português--english)
 
-## Features
+[Features](#-features) ·
+[Install](#-installation) ·
+[Keymaps](#%EF%B8%8F-keymaps) ·
+[Java](#-java--spring-boot) ·
+[Language](#-language-português--english) ·
+[Eye candy](#%EF%B8%8F-eye-candy) ·
+[Structure](#%EF%B8%8F-structure)
 
-- **Lazy plugin management** with [lazy.nvim](https://github.com/folke/lazy.nvim)
-- **LSP** with Mason for automatic language server installation
-- **Autocompletion** with nvim-cmp + LuaSnip + friendly-snippets
-- **Fuzzy finding** with Telescope
-- **File explorer** with Neo-tree
-- **Git integration** with Gitsigns and git-conflict
-- **Fast navigation** with Flash and Harpoon
-- **Beautiful UI** with theme switcher (Tokyo Night / Midnight / Cyberdream), Barbar tabs, Noice, and Dressing
-- **Code intelligence** with Treesitter, textobjects, and UFO folds
-- **Smooth scrolling** with Neoscroll
-- **Search & replace** across project with Spectre
-- **Session management** with Persistence
-- **Inline colors** with Colorizer and Rainbow Delimiters
-- **Focus mode** with Zen Mode
-- **Discord presence** with Cord
-- **Visual effects** — cellular automaton, drop screensaver, satellite scrollbar, 3D ASCII donut
-- **Hacker aesthetic** — glitch sidebars, matrix rain, fake terminal logs, EKG monitor, oscilloscope
-- **Duck pets** — spawn animated demons, skulls, bats, and dragons on your editor
-- **Live coding** with TidalCycles integration
+</div>
 
-## Plugin List
+---
 
-### Core / LSP / Editing
+Built on top of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) and grown into a daily driver: a curated set of plugins for an efficient workflow, first-class Java and Spring Boot support, a menu that teaches you every keymap, and a few visual effects for fun.
 
-| Plugin | Description |
-|--------|-------------|
-| **nvim-lspconfig** | LSP configuration |
-| **mason.nvim** | LSP/formatter/linter installer |
-| **nvim-cmp** | Autocompletion engine |
-| **LuaSnip** | Snippet engine |
-| **friendly-snippets** | Premade snippets for many languages |
-| **conform.nvim** | Code formatting |
-| **nvim-treesitter** | Syntax highlighting and code parsing |
-| **treesitter-textobjects** | Smart text objects (functions, classes, args) |
-| **rainbow-delimiters.nvim** | Colorized nested delimiters by depth |
-| **mini.nvim** | AI textobjects, surround, statusline |
-| **Comment.nvim** | Toggle comments |
-| **nvim-autopairs** | Auto close brackets/quotes |
-| **nvim-ufo** | Modern code folding |
-| **undotree** | Undo history visualizer |
+## ✨ Features
 
-### Navigation
+- 🧭 **Discoverable by design**: press `<Space>` and a tidy menu shows every keymap, grouped by what it does. Press `<Space>?` for a full cheatsheet in a floating window.
+- 🌍 **Bilingual UI**: every keymap description is in **Portuguese by default**, with **English** one keystroke away (`<Space>ti`). That includes Neovim's built-in `g`, `z`, `[`, `]`, marks, registers and window menus.
+- ☕ **Java & Spring Boot out of the box**: jdtls, the Spring Boot language server, JUnit runner, debugger and Gradle tasks, all wired up.
+- 🧠 **LSP everywhere**: Mason installs servers and tools automatically; completion with nvim-cmp and LuaSnip; formatting on save with conform.
+- 🔎 **Find anything**: Telescope for files, text, symbols and diagnostics; Flash to jump anywhere; Harpoon for your favourite files; Spectre for project-wide replace.
+- 📁 **File management without leaving the buffer**: create, rename, move and delete files and folders from `<Space>n` or the Neo-tree explorer.
+- 🎨 **Midnight by default**: a pure black theme, with Tokyo Night and Cyberdream one keystroke away.
+- 🕹️ **Eye candy**: code rain, game of life, a spinning 3D donut, glitch sidebars, hacker terminals, an EKG monitor and animated pets.
 
-| Plugin | Description |
-|--------|-------------|
-| **telescope.nvim** | Fuzzy finder for files, grep, symbols |
-| **flash.nvim** | Jump anywhere instantly |
-| **harpoon** | Quick file bookmarks |
-| **neo-tree.nvim** | File explorer sidebar |
-| **nvim-spectre** | Project-wide search & replace |
+## 📦 Requirements
 
-### UI / Themes
+| Tool | Why |
+|---|---|
+| **Neovim ≥ 0.12** | Uses the new `vim.lsp.enable` API |
+| **Git ≥ 2.19** | Plugin installation |
+| **A [Nerd Font](https://www.nerdfonts.com/)** | Icons (JetBrainsMono Nerd Font recommended) |
+| **ripgrep** (`rg`) | Telescope text search |
+| **make** + a C compiler | Treesitter parsers and LuaSnip |
+| **JDK 21 and JDK 25** *(optional)* | Java support: `brew install openjdk@21 openjdk@25` |
 
-| Plugin | Description |
-|--------|-------------|
-| **tokyonight.nvim** | Dark colorscheme (default) |
-| **midnight.nvim** | Pure black (#000000) colorscheme |
-| **cyberdream.nvim** | Dark cyberpunk colorscheme with neons |
-| **oxocarbon.nvim** | IBM Oxocarbon dark colorscheme |
-| **barbar.nvim** | Buffer tabs |
-| **noice.nvim** | Modern UI for messages and cmdline |
-| **dressing.nvim** | Improved input/select UI |
-| **nvim-colorizer** | Inline color preview |
-| **indent-blankline** | Colorful indent guides |
-| **satellite.nvim** | Decorated scrollbar with diagnostics and git |
-| **neoscroll.nvim** | Smooth scrolling |
-| **reactive.nvim** | Cursor color changes per mode |
-| **alpha-nvim** | Startup dashboard |
-
-### Git
-
-| Plugin | Description |
-|--------|-------------|
-| **gitsigns.nvim** | Git signs in gutter |
-| **git-conflict.nvim** | Git conflict resolution |
-
-### Tools / Diagnostics
-
-| Plugin | Description |
-|--------|-------------|
-| **trouble.nvim** | Diagnostics panel |
-| **error-lens.nvim** | Inline diagnostics |
-| **todo-comments.nvim** | Highlight and search TODOs |
-| **which-key.nvim** | Keybinding hints |
-| **persistence.nvim** | Session management |
-| **toggleterm.nvim** | Floating terminal |
-| **zen-mode.nvim** | Distraction-free writing |
-| **cord.nvim** | Discord Rich Presence |
-
-### Visual Effects & Fun
-
-| Plugin | Description |
-|--------|-------------|
-| **cellular-automaton.nvim** | Animate buffer as Game of Life or make it rain |
-| **drop.nvim** | Snow/stars/leaves falling screensaver |
-| **duck.nvim** | Animated pets (demons, skulls, bats, dragons) |
-| **glitch-sidebar** *(custom)* | Glitch art + matrix rain sidebars |
-| **hacker-panels** *(custom)* | Fake hacker terminal, EKG monitor, oscilloscope |
-| **donut** *(custom)* | 3D ASCII spinning donut in a floating window |
-
-### Live Coding
-
-| Plugin | Description |
-|--------|-------------|
-| **vim-tidal** | TidalCycles live coding integration |
-
-## Keybindings
-
-Leader key is `<Space>`.
-
-### General
-
-| Key | Action |
-|-----|--------|
-| `Ctrl+s` | Save file |
-| `Ctrl+z` | Undo |
-| `Ctrl+t` | Toggle floating terminal |
-| `<leader>z` | Zen Mode |
-| `<leader>\` | Vertical split |
-| `<leader>-` | Horizontal split |
-| `Ctrl+h/j/k/l` | Navigate between windows |
-
-### Themes
-
-| Key | Action |
-|-----|--------|
-| `<leader>tt` | Tokyo Night (default) |
-| `<leader>tm` | Midnight (pure black) |
-| `<leader>tc` | Cyberdream (cyberpunk neons) |
-
-### Visual Effects `<leader>e`
-
-| Key | Action |
-|-----|--------|
-| `<leader>em` | Cellular Automaton — Make it Rain |
-| `<leader>eg` | Cellular Automaton — Game of Life |
-| `<leader>ed` | Cycle Drop theme (snow/stars/leaves/xmas/spring) |
-| `<leader>es` | Toggle Satellite scrollbar |
-| `<leader>er` | Toggle Rainbow Delimiters |
-| `<leader>eo` | Toggle 3D ASCII Donut |
-
-### Duck Pets `<leader>d`
-
-| Key | Action |
-|-----|--------|
-| `<leader>dd` | Spawn random demon |
-| `<leader>da` | Spawn skull |
-| `<leader>db` | Spawn bat |
-| `<leader>d1` | Spawn demon |
-| `<leader>d2` | Spawn alien |
-| `<leader>d3` | Spawn dragon |
-| `<leader>d4` | Spawn fire |
-| `<leader>d5` | Spawn robot |
-| `<leader>dh` | Spawn horde (5 at once) |
-| `<leader>dc` | Kill last pet |
-| `<leader>dk` | Kill all pets |
-
-### Glitch Sidebar `<leader>g`
-
-| Key | Action |
-|-----|--------|
-| `<leader>gg` | Toggle both sides |
-| `<leader>gl` | Toggle left (glitch chaos) |
-| `<leader>gr` | Toggle right (matrix rain) |
-
-### Hacker Panels `<leader>h`
-
-| Key | Action |
-|-----|--------|
-| `<leader>hh` | Hacker terminal (right) |
-| `<leader>hl` | Hacker terminal (left) |
-| `<leader>he` | EKG heartbeat monitor (right) |
-| `<leader>ho` | Oscilloscope (left) |
-| `<leader>ha` | Combo: oscilloscope + hacker terminal |
-
-### Telescope (Search)
-
-| Key | Action |
-|-----|--------|
-| `<leader>sf` | Find files |
-| `<leader>sg` | Live grep |
-| `<leader>sw` | Search word under cursor |
-| `<leader>sh` | Search help |
-| `<leader>sk` | Search keymaps |
-| `<leader>sd` | Search diagnostics |
-| `<leader>st` | Search TODOs |
-| `<leader>s.` | Recent files |
-| `<leader>/` | Fuzzy search in buffer |
-| `<leader><Space>` | List open buffers |
-
-### Navigation
-
-| Key | Action |
-|-----|--------|
-| `s` | Flash jump |
-| `S` | Flash treesitter select |
-| `<leader>H` | Add file to Harpoon |
-| `<leader>h` | Harpoon quick menu |
-| `<leader>1-5` | Jump to Harpoon file 1-5 |
-| `Ctrl+b` | Toggle Neo-tree |
-
-### LSP
-
-| Key | Action |
-|-----|--------|
-| `gd` | Go to definition |
-| `gr` | Go to references |
-| `gI` | Go to implementation |
-| `<leader>rn` | Rename symbol |
-| `<leader>ca` | Code action |
-| `<leader>f` | Format buffer |
-| `<leader>m` | Open Mason |
-
-### Tools
-
-| Key | Action |
-|-----|--------|
-| `<leader>S` | Spectre search & replace |
-| `<leader>u` | Toggle Undotree |
-| `<leader>qs` | Restore session |
-| `<leader>ql` | Restore last session |
-| `gcc` | Toggle comment line |
-| `zR` / `zM` | Open/Close all folds |
-
-## Installation
+## 🚀 Installation
 
 ```bash
-# Backup existing config
+# Back up your current config
 mv ~/.config/nvim ~/.config/nvim.bak
 
 # Clone
 git clone https://github.com/FelipeKreulich/Orus-NeoVim.git ~/.config/nvim
 
-# Open Neovim — plugins install automatically
+# Open Neovim: lazy.nvim installs the plugins and Mason installs the tools
 nvim
 ```
 
-## Structure
+The first start takes a minute while everything downloads. After that it starts instantly.
+
+## ⌨️ Keymaps
+
+The leader key is **`<Space>`**. You don't need to memorise anything: press `<Space>` (or `g`, `z`, `[`, `]`, `<C-w>`) and wait for the menu.
+
+| Prefix | Group | Highlights |
+|---|---|---|
+| `<Space>s` | 🔍 Search | `sf` files · `sg` grep · `sw` word · `so` symbols · `sk` all keymaps |
+| `<Space>c` | 💻 Code | `ca` code actions · `cr` rename · `ct` go to type |
+| `<Space>n` | 📁 Files and folders | `nf` new file · `nd` new folder · `nr` rename · `nx` delete · `ne` reveal |
+| `<Space>j` | ☕ Java / Spring | `jt` run test · `jr` bootRun · `jo` organize imports · `jm` extract method |
+| `<Space>b` | 🐞 Debug | `bb` breakpoint · `bu` debug panel · `F5` `F10` `F11` `F12` |
+| `<Space>a` | 📌 Marks (Harpoon) | `aa` mark file · `am` menu · `<Space>1`…`5` jump |
+| `<Space>S` | 🔁 Replace (Spectre) | `SS` project · `Sw` word · `Sf` file |
+| `<Space>p` | 💾 Sessions | `ps` restore · `pl` last session |
+| `<Space>x` | ⚠️ Problems and TODOs | `xq` quickfix · `xt` Trouble |
+| `<Space>t` | 🎨 Themes and options | `tm` Midnight · `tt` Tokyo Night · `tc` Cyberdream · `ti` language |
+| `<Space>e` `E` `P` | 🕹️ Eye candy | effects · hacker screens · pets |
+
+**Everyday keys**
+
+| Key | Action |
+|---|---|
+| `<Space><Space>` | Open buffers |
+| `<Space>/` | Search in current file |
+| `<Space>f` | Format file |
+| `<Space>w` | Close buffer |
+| `<Space>?` | Cheatsheet with **every** keymap |
+| `Ctrl-s` / `Ctrl-z` | Save / undo |
+| `Ctrl-e` / `Ctrl-b` | File explorer |
+| `Ctrl-t` | Floating terminal |
+| `Ctrl-h/j/k/l` | Move between windows |
+| `gd` / `gr` / `K` | Definition / references / docs |
+| `s` / `S` | Flash jump / select a block |
+
+The full list lives in [`cabula.en.md`](cabula.en.md) (English) and [`cabula.md`](cabula.md) (Portuguese), the same files `<Space>?` opens.
+
+## ☕ Java & Spring Boot
+
+Open any `.java` file in a Gradle or Maven project and you get:
+
+- **jdtls**, started per project by [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls) with its own workspace cache;
+- the **Spring Boot language server** ([spring-boot.nvim](https://github.com/JavaHello/spring-boot.nvim)): completion and validation in `application.yaml`/`.properties`, beans and endpoints;
+- a **JUnit** runner and a **debugger** (nvim-dap + dap-ui, with hot code replace);
+- **Gradle** tasks in a floating terminal: `bootRun`, `test`, `build`.
+
+> [!NOTE]
+> Current jdtls releases need **Java 25** to run. The config looks for `openjdk@25` from Homebrew first and falls back to a JDK 25 that Gradle downloaded into `~/.gradle/jdks`.
+
+## 🌍 Language: Português / English
+
+The UI speaks **Portuguese by default**. Switch at any time:
+
+```vim
+<Space>ti        " toggle
+:Idioma en       " English
+:Idioma pt       " Português
+```
+
+The choice is saved and survives restarts. It covers the which-key menu (including Neovim's built-in keymaps and the plugins' ones), its footer, the cheatsheet and the config's own messages. Neovim's built-in error messages follow your Neovim build and usually stay in English.
+
+To translate something new, add a line to [`lua/config/traducoes.lua`](lua/config/traducoes.lua):
+
+```lua
+["Text in English"] = "Texto em português",
+```
+
+## 🕹️ Eye candy
+
+| Keys | What it does |
+|---|---|
+| `<Space>em` / `eg` | Make it rain / game of life with your code |
+| `<Space>eo` | A spinning 3D ASCII donut |
+| `<Space>ed` | Falling snow, stars or leaves |
+| `<Space>El` / `Er` / `Eg` | Glitch art and matrix rain sidebars |
+| `<Space>Ek` / `Ee` / `Eo` / `Ea` | Hacker terminal, EKG monitor, oscilloscope, full hacker mode |
+| `<Space>Pd` / `Ph` / `Pk` | Spawn a demon, a horde, or kill them all |
+
+## 🧩 Plugins
+
+<details>
+<summary><b>Show the full list</b></summary>
+
+| Area | Plugins |
+|---|---|
+| Core | lazy.nvim, which-key.nvim, plenary.nvim, lazydev.nvim |
+| LSP & tools | nvim-lspconfig, mason.nvim, mason-lspconfig, mason-tool-installer, conform.nvim |
+| Java | nvim-jdtls, spring-boot.nvim, nvim-dap, nvim-dap-ui |
+| Completion | nvim-cmp, LuaSnip, friendly-snippets |
+| Syntax | nvim-treesitter, treesitter-textobjects, rainbow-delimiters, nvim-ufo |
+| Editing | mini.nvim, Comment.nvim, nvim-autopairs, nvim-surround, undotree |
+| Navigation | telescope.nvim, flash.nvim, harpoon, neo-tree.nvim, nvim-spectre |
+| UI | midnight.nvim, tokyonight.nvim, cyberdream.nvim, barbar.nvim, noice.nvim, nvim-notify, dressing.nvim, indent-blankline, satellite.nvim, neoscroll.nvim, reactive.nvim, alpha-nvim, nvim-colorizer |
+| Git | gitsigns.nvim, git-conflict.nvim |
+| Workflow | trouble.nvim, error-lens.nvim, todo-comments.nvim, persistence.nvim, toggleterm.nvim, zen-mode.nvim, cord.nvim |
+| Fun | cellular-automaton.nvim, drop.nvim, duck.nvim, vim-tidal, plus the custom donut, glitch-sidebar and hacker-panels |
+
+</details>
+
+## 🗂️ Structure
 
 ```
 ~/.config/nvim/
-├── init.lua                              # Main config (options, keymaps, lazy.nvim bootstrap)
+├── init.lua                 # Options, core keymaps, lazy.nvim bootstrap
+├── cabula.md                # Cheatsheet (Português)
+├── cabula.en.md             # Cheatsheet (English)
+├── ftplugin/
+│   └── java.lua             # jdtls per project: tests, debug, Spring, Gradle keymaps
 └── lua/
-    └── plugins/
-        ├── Autocomplete.lua              # nvim-cmp, LuaSnip, friendly-snippets
-        ├── Autoformater.lua              # conform.nvim
-        ├── CodeUtility.lua               # surround, comment, autopairs
-        ├── FocusMode.lua                 # zen-mode
-        ├── Telescope.lua                 # telescope + extensions
-        ├── Treesitter.lua                # treesitter + parsers
-        ├── UIComponents.lua              # themes, neo-tree, barbar, trouble, cord
-        ├── cellular-automaton.lua        # make it rain / game of life
-        ├── colorizer.lua                 # inline color preview
-        ├── donut.lua                     # 3D ASCII spinning donut (custom)
-        ├── dressing.lua                  # improved UI
-        ├── drop.lua                      # falling snow/stars screensaver
-        ├── flash.lua                     # fast navigation
-        ├── gitutils.lua                  # git-conflict
-        ├── glitch-sidebar.lua            # glitch art + matrix rain (custom)
-        ├── hacker-panels.lua             # hacker terminal, EKG, oscilloscope (custom)
-        ├── harpoon.lua                   # file bookmarks
-        ├── indent.lua                    # indent guides
-        ├── lsp.lua                       # LSP + Mason
-        ├── meme.lua                      # noice, neoscroll, ufo
-        ├── persistence.lua               # session management
-        ├── pets.lua                      # duck.nvim animated pets/demons
-        ├── rainbow-delimiters.lua        # colorized nested delimiters
-        ├── reactive.lua                  # cursor color per mode
-        ├── satellite.lua                 # decorated scrollbar
-        ├── spectre.lua                   # search & replace
-        ├── terminal.lua                  # toggleterm
-        ├── themes.lua                    # midnight + cyberdream themes
-        ├── tidal.lua                     # TidalCycles live coding
-        ├── treesitter-textobjects.lua    # smart text objects
-        ├── trouble-nvim.lua              # error-lens + trouble
-        ├── undotree.lua                  # undo history
-        └── which-key.lua                 # keybinding hints
+    ├── config/
+    │   ├── idioma.lua       # Language switch (PT / EN)
+    │   ├── traducoes.lua    # EN ↔ PT dictionary for every keymap description
+    │   ├── cabula.lua       # Floating cheatsheet (<Space>?)
+    │   └── ficheiros.lua    # New / rename / delete files and folders (<Space>n)
+    └── plugins/             # One file per plugin or area (lsp, java, telescope, themes…)
 ```
+
+<div align="center">
+
+Made with ☕ and Lua by [Felipe Kreulich](https://github.com/FelipeKreulich)
+
+</div>

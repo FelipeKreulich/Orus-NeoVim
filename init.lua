@@ -339,3 +339,6 @@ require("lazy").setup({
 		},
 	},
 })
+
+-- Language (PT by default, EN optional): <Space>ti or :Idioma pt|en
+require("config.idioma").setup()

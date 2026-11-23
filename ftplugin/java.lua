@@ -26,7 +26,7 @@ end
 
 local jdk25 = jdk("25")
 if not jdk25 then
-	vim.notify("jdtls: falta o JDK 25 (brew install openjdk@25)", vim.log.levels.WARN)
+	vim.notify(require("config.idioma").t("jdtls: falta o JDK 25 (brew install openjdk@25)", "jdtls: JDK 25 is missing (brew install openjdk@25)"), vim.log.levels.WARN)
 	return
 end
 

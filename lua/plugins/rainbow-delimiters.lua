@@ -25,7 +25,8 @@ return {
 
     vim.keymap.set("n", "<leader>er", function()
       rainbow.toggle(0)
-      vim.notify("Parênteses coloridos: " .. (rainbow.is_enabled(0) and "ligados" or "desligados"))
+      local t = require("config.idioma").t
+      vim.notify(t("Parênteses coloridos: ", "Rainbow brackets: ") .. (rainbow.is_enabled(0) and t("ligados", "on") or t("desligados", "off")))
     end, { desc = "Parênteses coloridos" })
   end,
 }

@@ -4,7 +4,7 @@ local function animar(nome)
 	return function()
 		local ok = pcall(vim.treesitter.get_parser, 0)
 		if not ok or vim.bo.filetype == "" then
-			vim.notify("Abre um ficheiro de código primeiro (a animação usa o Treesitter)", vim.log.levels.WARN)
+			vim.notify(require("config.idioma").t("Abre um ficheiro de código primeiro (a animação usa o Treesitter)", "Open a code file first (the animation uses Treesitter)"), vim.log.levels.WARN)
 			return
 		end
 		vim.cmd("CellularAutomaton " .. nome)

@@ -62,6 +62,25 @@ Dentro do explorador (Neo-tree, `<Ctrl-e>`/`<Ctrl-b>`):
 | `S` | Selecionar um bloco (Treesitter) |
 | `]t` / `[t` | TODO seguinte / anterior |
 
+## Comandos do Vim (`g`, `z`, `[`, `]`)
+
+Carrega só a primeira tecla e o menu mostra o resto. Os mais úteis:
+
+| Teclas | O quê |
+|---|---|
+| `gg` / `G` | Primeira / última linha |
+| `gf` / `gx` | Abrir o ficheiro / o link debaixo do cursor |
+| `gi` / `gv` | Voltar à última inserção / à última seleção |
+| `gu` / `gU` / `g~` | Minúsculas / maiúsculas / trocar (seguido de movimento, ex.: `gUw`) |
+| `gcc` / `gc` | Comentar a linha / a seleção |
+| `za` / `zR` / `zM` | Abrir ou fechar dobra / abrir todas / fechar todas |
+| `zz` / `zt` / `zb` | Linha atual ao centro / no topo / no fundo |
+| `z=` | Sugestões de ortografia |
+| `]d` / `[d` | Diagnóstico seguinte / anterior |
+| `<Ctrl-w>` | Menu das janelas (dividir, mover, redimensionar) |
+| `'` / `` ` `` | Saltar para uma marca |
+| `"` | Escolher registo (copiar/colar) |
+
 ## Código (LSP)
 
 | Teclas | O quê |
@@ -141,6 +160,7 @@ Dentro do explorador (Neo-tree, `<Ctrl-e>`/`<Ctrl-b>`):
 |---|---|
 | `tm` | Midnight (o tema por omissão) |
 | `tt` / `tc` | Tokyo Night / Cyberdream |
+| `ti` | Idioma: Português / English (também `:Idioma pt` ou `:Idioma en`) |
 
 ## Cosmética
 

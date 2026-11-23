@@ -3,7 +3,8 @@
 local M = {}
 
 function M.abrir()
-	local ficheiro = vim.fn.stdpath("config") .. "/cabula.md"
+	local idioma = require("config.idioma")
+	local ficheiro = vim.fn.stdpath("config") .. (idioma.atual() == "en" and "/cabula.en.md" or "/cabula.md")
 	local linhas = vim.fn.filereadable(ficheiro) == 1 and vim.fn.readfile(ficheiro) or { "Falta o " .. ficheiro }
 
 	local buf = vim.api.nvim_create_buf(false, true)
@@ -22,7 +23,7 @@ function M.abrir()
 		col = math.floor((vim.o.columns - largura) / 2),
 		style = "minimal",
 		border = "rounded",
-		title = " Cábula · q para fechar · / para procurar ",
+		title = idioma.t(" Cábula · q para fechar · / para procurar ", " Cheatsheet · q to close · / to search "),
 		title_pos = "center",
 	})
 	vim.wo[win].conceallevel = 2
@@ -33,6 +34,6 @@ function M.abrir()
 	end
 end
 
-vim.api.nvim_create_user_command("Cabula", M.abrir, { desc = "Cábula com todos os atalhos" })
+vim.api.nvim_create_user_command("Cabula", M.abrir, { desc = "Cábula / cheatsheet" })
 
 return M
