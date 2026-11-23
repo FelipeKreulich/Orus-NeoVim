@@ -73,6 +73,9 @@ end
 
 function M.copiar_caminho()
 	local caminho = vim.fn.expand("%:.")
+	if caminho == "" then
+		return vim.notify("Este buffer não tem ficheiro", vim.log.levels.WARN)
+	end
 	vim.fn.setreg("+", caminho)
 	vim.notify("Copiado: " .. caminho)
 end

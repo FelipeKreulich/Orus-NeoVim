@@ -59,7 +59,7 @@ end
 local function open()
   if win and vim.api.nvim_win_is_valid(win) then return end
   local W, H = 72, 28
-  local ui = vim.api.nvim_list_uis()[1]
+  local ui = { width = vim.o.columns, height = vim.o.lines }
 
   buf = vim.api.nvim_create_buf(false, true)
   vim.bo[buf].bufhidden = "wipe"

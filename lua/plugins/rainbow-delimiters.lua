@@ -23,15 +23,9 @@ return {
       },
     }
 
-    local enabled = true
     vim.keymap.set("n", "<leader>er", function()
-      if enabled then
-        vim.cmd("RainbowDelimitersDisable")
-      else
-        vim.cmd("RainbowDelimitersEnable")
-      end
-      enabled = not enabled
-      vim.notify("Rainbow Delimiters: " .. (enabled and "ON" or "OFF"))
+      rainbow.toggle(0)
+      vim.notify("Parênteses coloridos: " .. (rainbow.is_enabled(0) and "ligados" or "desligados"))
     end, { desc = "Parênteses coloridos" })
   end,
 }
