@@ -95,12 +95,12 @@ local opts = { noremap = true, silent = true }
 
 -- Window split keybinds
 --
-keymap("n", "<leader>v", "<C-v>", opts)
+keymap("n", "<leader>v", "<C-v>", vim.tbl_extend("force", opts, { desc = "Seleção em bloco" }))
 keymap("n", "<C-s>", ":w!<Cr>", opts)
 keymap("n", "<C-z>", "u", opts)
 keymap("i", "<C-z>", "<C-o>u", opts)
-keymap("n", "<leader>\\", ":vsplit<CR>", opts) -- Vertical split
-keymap("n", "<leader>-", ":split<CR>", opts) -- Horizontal split
+keymap("n", "<leader>\\", ":vsplit<CR>", vim.tbl_extend("force", opts, { desc = "Dividir na vertical" }))
+keymap("n", "<leader>-", ":split<CR>", vim.tbl_extend("force", opts, { desc = "Dividir na horizontal" }))
 
 vim.g.have_nerd_font = true
 vim.opt.number = true
@@ -138,9 +138,9 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>w", "<cmd>BufferClose<CR>", { desc = "Close buffer" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Opmen diagnostic [Q]uickfix list" })
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("n", "<leader>w", "<cmd>BufferClose<CR>", { desc = "Fechar buffer" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Lista de diagnósticos" })
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Sair do modo terminal" })
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
@@ -270,13 +270,13 @@ require("lazy").setup({
 			end, { desc = "Next error/warning todo comment" })
 
 			-- Show todos in quickfix list
-			vim.keymap.set("n", "<leader>xq", "<cmd>TodoQuickFix<cr>", { desc = "Todo QuickFi[x] [Q]uickfix" })
+			vim.keymap.set("n", "<leader>xq", "<cmd>TodoQuickFix<cr>", { desc = "TODOs na quickfix" })
 
 			-- Show todos in location list
-			vim.keymap.set("n", "<leader>xl", "<cmd>TodoLocList<cr>", { desc = "Todo [X] [L]ocation List" })
+			vim.keymap.set("n", "<leader>xl", "<cmd>TodoLocList<cr>", { desc = "TODOs na location list" })
 
 			-- Show todos in Trouble
-			vim.keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<cr>", { desc = "Todos in Trouble" })
+			vim.keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<cr>", { desc = "TODOs no Trouble" })
 		end,
 	},
 

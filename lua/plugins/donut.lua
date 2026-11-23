@@ -108,6 +108,6 @@ end
 
 vim.keymap.set("n", "<leader>eo", function()
   if win and vim.api.nvim_win_is_valid(win) then close() else open() end
-end, { desc = "Toggle Donut 3D" })
+end, { desc = "Donut 3D" })
 
 return {}

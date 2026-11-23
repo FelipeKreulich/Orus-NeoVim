@@ -477,20 +477,20 @@ return {
 
       -- Keymaps
       -- Hacker terminal
-      vim.keymap.set("n", "<leader>hh", function() toggle("hacker", "right") end, { desc = "Toggle hacker terminal (right)" })
-      vim.keymap.set("n", "<leader>hl", function() toggle("hacker", "left") end, { desc = "Toggle hacker terminal (left)" })
+      vim.keymap.set("n", "<leader>Ek", function() toggle("hacker", "right") end, { desc = "Terminal hacker à direita" })
+      vim.keymap.set("n", "<leader>Ej", function() toggle("hacker", "left") end, { desc = "Terminal hacker à esquerda" })
 
       -- EKG heartbeat
-      vim.keymap.set("n", "<leader>he", function() toggle("ekg", "right") end, { desc = "Toggle EKG monitor (right)" })
+      vim.keymap.set("n", "<leader>Ee", function() toggle("ekg", "right") end, { desc = "Monitor EKG" })
 
       -- Oscilloscope
-      vim.keymap.set("n", "<leader>ho", function() toggle("osc", "left") end, { desc = "Toggle oscilloscope (left)" })
+      vim.keymap.set("n", "<leader>Eo", function() toggle("osc", "left") end, { desc = "Osciloscópio" })
 
       -- Combo: osc esquerda + hacker direita
-      vim.keymap.set("n", "<leader>ha", function()
+      vim.keymap.set("n", "<leader>Ea", function()
         toggle("osc", "left")
         toggle("hacker", "right")
-      end, { desc = "Toggle hacker mode (osc+hacker)" })
+      end, { desc = "Modo hacker (osciloscópio + terminal)" })
     end,
   },
 }

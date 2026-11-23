@@ -34,7 +34,8 @@ return {
 		},
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
-			vim.cmd([[colorscheme tokyonight-night]])
+			-- Tema por omissão: Midnight (o tokyonight fica configurado para o <leader>tt).
+			vim.cmd("colorscheme midnight")
 
 			-- Atalhos para trocar de tema rapidamente
 			vim.keymap.set("n", "<leader>tt", function()

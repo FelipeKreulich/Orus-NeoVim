@@ -17,6 +17,6 @@ return {
       idx = (idx % #themes) + 1
       require("drop").setup({ theme = themes[idx] })
       vim.notify("Drop theme: " .. themes[idx], vim.log.levels.INFO)
-    end, { desc = "Cycle Drop theme" })
+    end, { desc = "Trocar o tema do Drop" })
   end,
 }

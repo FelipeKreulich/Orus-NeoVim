@@ -46,10 +46,10 @@ return {
         swap = {
           enable = true,
           swap_next = {
-            ["<leader>a"] = { query = "@parameter.inner", desc = "Swap with next argument" },
+            ["<leader>cs"] = { query = "@parameter.inner", desc = "Trocar com o argumento seguinte" },
           },
           swap_previous = {
-            ["<leader>A"] = { query = "@parameter.inner", desc = "Swap with previous argument" },
+            ["<leader>cS"] = { query = "@parameter.inner", desc = "Trocar com o argumento anterior" },
           },
         },
       },

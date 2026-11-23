@@ -27,6 +27,11 @@ return {
 			"toml",
 			"css",
 			"python",
+			-- Java e Spring Boot (pop-api)
+			"java",
+			"kotlin",
+			"sql",
+			"properties",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,

@@ -27,6 +27,6 @@ return {
       end
       enabled = not enabled
       vim.notify("Satellite: " .. (enabled and "ON" or "OFF"))
-    end, { desc = "Toggle Satellite scrollbar" })
+    end, { desc = "Barra de scroll (Satellite)" })
   end,
 }

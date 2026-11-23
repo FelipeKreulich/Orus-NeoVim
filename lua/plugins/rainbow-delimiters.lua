@@ -32,6 +32,6 @@ return {
       end
       enabled = not enabled
       vim.notify("Rainbow Delimiters: " .. (enabled and "ON" or "OFF"))
-    end, { desc = "Toggle Rainbow Delimiters" })
+    end, { desc = "Parênteses coloridos" })
   end,
 }

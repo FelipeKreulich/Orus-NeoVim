@@ -12,22 +12,22 @@ return {
 	keys = function()
 		local keys = {
 			{
-				"<leader>H",
+				"<leader>aa",
 				function()
 					require("harpoon"):list():add()
 				end,
-				desc = "Harpoon File",
+				desc = "Marcar ficheiro",
 			},
 			{
-				"<leader>h",
+				"<leader>am",
 				function()
 					local harpoon = require("harpoon")
 					harpoon.ui:toggle_quick_menu(harpoon:list())
 				end,
-				desc = "Harpoon Quick Menu",
+				desc = "Menu das marcas",
 			},
 			{
-				"<leader>Hd",
+				"<leader>ar",
 				function()
 					local harpoon = require("harpoon")
 					local current_buf = vim.api.nvim_buf_get_name(0)
@@ -44,10 +44,10 @@ return {
 					if idx_to_remove then
 						list:remove(idx_to_remove)
 					else
-						vim.notify("File not in Harpoon list", vim.log.levels.WARN)
+						vim.notify("Este ficheiro não está marcado", vim.log.levels.WARN)
 					end
 				end,
-				desc = "Harpoon Remove Current File",
+				desc = "Desmarcar ficheiro",
 			},
 		}
 
@@ -57,7 +57,7 @@ return {
 				function()
 					require("harpoon"):list():select(i)
 				end,
-				desc = "Harpoon to File " .. i,
+				desc = "Ir para a marca " .. i,
 			})
 		end
 		return keys

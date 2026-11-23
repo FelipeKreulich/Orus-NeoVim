@@ -43,17 +43,36 @@ return {
 			},
 		},
 
-		-- Document existing key chains
+		-- Grupos do menu do <Espaço> (em português). Cosmética no fim, em maiúsculas.
 		spec = {
-			{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-			{ "<leader>d", group = "[D]ocument" },
-			{ "<leader>r", group = "[R]ename" },
-			{ "<leader>s", group = "[S]earch" },
-			{ "<leader>w", group = "[W]orkspace" },
-			{ "<leader>t", group = "[T]oggle" },
-			{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-			{ "<leader>m", group = "[M]ason", mode = { "n" } },
-			{ "<leader>e", group = "[E]ffects" },
+			{ "<leader>a", group = "Marcas (Harpoon)", icon = "󰛢" },
+			{ "<leader>b", group = "Debug", icon = "" },
+			{ "<leader>c", group = "Código", mode = { "n", "x" }, icon = "" },
+			{ "<leader>j", group = "Java / Spring", icon = "" },
+			{ "<leader>p", group = "Sessões", icon = "󰆓" },
+			{ "<leader>s", group = "Procurar", icon = "" },
+			{ "<leader>t", group = "Temas e opções", icon = "" },
+			{ "<leader>x", group = "Problemas e TODOs", icon = "󱖫" },
+			{ "<leader>S", group = "Substituir (Spectre)", icon = "" },
+			-- Cosmética
+			{ "<leader>e", group = "Efeitos", icon = "" },
+			{ "<leader>E", group = "Ecrãs hacker", icon = "󰊠" },
+			{ "<leader>P", group = "Patos", icon = "󰇥" },
+			-- Harpoon 1-5: funcionam, mas não ocupam o menu
+			{ "<leader>1", hidden = true },
+			{ "<leader>2", hidden = true },
+			{ "<leader>3", hidden = true },
+			{ "<leader>4", hidden = true },
+			{ "<leader>5", hidden = true },
+			-- Cábula com todos os atalhos
+			{
+				"<leader>?",
+				function()
+					require("config.cabula").abrir()
+				end,
+				desc = "Cábula: todos os atalhos",
+				icon = "",
+			},
 		},
 	},
 }

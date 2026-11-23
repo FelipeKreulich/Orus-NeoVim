@@ -11,7 +11,7 @@ return {
 			config = function()
 				-- Set up Mason
 				require("mason").setup()
-				vim.api.nvim_set_keymap("n", "<leader>m", ":Mason<CR>", { noremap = true, silent = true })
+				vim.keymap.set("n", "<leader>m", "<cmd>Mason<CR>", { silent = true, desc = "Mason (ferramentas)" })
 			end,
 		},
 		"williamboman/mason-lspconfig.nvim",
@@ -69,39 +69,39 @@ return {
 				-- Jump to the definition of the word under your cursor.
 				--  This is where a variable was first declared, or where a function is defined, etc.
 				--  To jump back, press <C-t>.
-				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+				map("gd", require("telescope.builtin").lsp_definitions, "Ir para a definição")
 
 				-- Find references for the word under your cursor.
-				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+				map("gr", require("telescope.builtin").lsp_references, "Referências")
 
 				-- Jump to the implementation of the word under your cursor.
 				--  Useful when your language has ways of declaring types without an actual implementation.
-				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+				map("gI", require("telescope.builtin").lsp_implementations, "Ir para a implementação")
 
 				-- Jump to the type of the word under your cursor.
 				--  Useful when you're not sure what type a variable is and you want to see
 				--  the definition of its *type*, not where it was *defined*.
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+				map("<leader>ct", require("telescope.builtin").lsp_type_definitions, "Ir para o tipo")
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("<leader>so", require("telescope.builtin").lsp_document_symbols, "Símbolos do ficheiro")
 
 				-- Fuzzy find all the symbols in your current workspace.
 				--  Similar to document symbols, except searches over your entire project.
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				map("<leader>sO", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Símbolos do projeto")
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
-				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>cr", vim.lsp.buf.rename, "Renomear")
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
-				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+				map("<leader>ca", vim.lsp.buf.code_action, "Ações de código", { "n", "x" })
 
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header.
-				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+				map("gD", vim.lsp.buf.declaration, "Ir para a declaração")
 
 				-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 				---@param client vim.lsp.Client
@@ -162,7 +162,7 @@ return {
 				then
 					map("<leader>th", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-					end, "[T]oggle Inlay [H]ints")
+					end, "Dicas inline (inlay hints)")
 				end
 			end,
 		})
@@ -258,12 +258,19 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
+			-- Java e Spring Boot (ver lua/plugins/java.lua e ftplugin/java.lua)
+			"jdtls",
+			"java-debug-adapter",
+			"java-test",
+			"vscode-spring-boot-tools",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
 			automatic_installation = false,
+			-- O jdtls arranca pelo nvim-jdtls (ftplugin/java.lua); ligado aqui também arrancava duas vezes.
+			automatic_enable = { exclude = { "jdtls" } },
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}

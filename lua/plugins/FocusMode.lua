@@ -11,7 +11,7 @@ return {
 		keymap("n", "<leader>z", "<cmd>:ZenMode<CR>", {
 			noremap = true,
 			silent = true,
-			desc = "Focus mode!",
+			desc = "Modo foco",
 		})
 	end,
 }

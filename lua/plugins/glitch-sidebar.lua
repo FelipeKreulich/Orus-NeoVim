@@ -265,9 +265,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
       end
     end
 
-    vim.keymap.set("n", "<leader>gl", function() toggle("left") end, { desc = "Toggle glitch esquerda" })
-    vim.keymap.set("n", "<leader>gr", function() toggle("right") end, { desc = "Toggle glitch direita (matrix)" })
-    vim.keymap.set("n", "<leader>gg", toggle_both, { desc = "Toggle glitch ambos lados" })
+    vim.keymap.set("n", "<leader>El", function() toggle("left") end, { desc = "Glitch à esquerda" })
+    vim.keymap.set("n", "<leader>Er", function() toggle("right") end, { desc = "Glitch à direita (matrix)" })
+    vim.keymap.set("n", "<leader>Eg", toggle_both, { desc = "Glitch nos dois lados" })
   end,
 })
 
